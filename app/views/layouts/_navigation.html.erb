@@ -1,0 +1,30 @@
+<header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href=<%= root_path %> >GCM Test Helper</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <% if user_signed_in? %>
+      <div class="navbar-form navbar-right">
+        <a href="<%= edit_user_registration_path %>">Welcome, <%= current_user.email %></a>
+        <%= link_to "Logout", destroy_user_session_path, :method => :delete , :class => 'btn btn-danger btn-sm' %>
+      </div>
+      <% else %>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'navbar-form navbar-right' }) do |f| %>
+      <div class="form-group">
+        <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
+      </div>
+      <%= f.submit "Sign in", class: 'btn btn-success' %>
+      <% end %>
+      <% end %>
+    </div>
+  </div><!--/.navbar-collapse -->
+</div>
+</header>
