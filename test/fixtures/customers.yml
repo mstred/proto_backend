@@ -5,9 +5,11 @@ one:
   email: john.doe@example.com
   device_model: Model1
   password: johnspw
+  gcm_id: onf98n239pnpdjkgh98qh3rnpg983
 
 two:
   name: Mary Doe
   email: mary.doe@example.com
   device_model: Model2
   password: maryspw
+  gcm_id: h98qh3rnpg983onf98n239pnpdjkg
