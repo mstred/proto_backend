@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @technician.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @technician.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @technician.password %>
+</p>
+
+<p>
+  <strong>Gcm:</strong>
+  <%= @technician.gcm_id %>
+</p>
+
+<%= link_to 'Edit', edit_technician_path(@technician) %> |
+<%= link_to 'Back', technicians_path %>
