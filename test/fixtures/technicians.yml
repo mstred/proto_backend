@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Yoda
+  email: yoda@example.com
+  password: strong_pass
+  gcm_id: hajdhf982y34tkjnf98yiu2enfio909823t
+
+two:
+  name: Darth Vader
+  email: vader@darkforce.com
+  password: strong_pass
+  gcm_id: f98yiu2enfio909823thajdhf982y34tkjn
