@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy, :customer_location]
 
   # GET /customers
   # GET /customers.json
@@ -25,7 +25,12 @@ class CustomersController < ApplicationController
   # POST /customers.json
   def create
     @customer = Customer.new(customer_params)
-
+    # If location params is not passed
+    # creates a new entry with null lat and long
+    if @customer.location == nil
+      @customer.build_location
+    end
+    
     respond_to do |format|
       if @customer.save
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
@@ -61,6 +66,18 @@ class CustomersController < ApplicationController
     end
   end
 
+  def customer_location
+    respond_to do |format|
+      if @customer.location != nil
+        format.html {redirect_to @customer.location}
+        format.json { render json: @customer.location.to_json(only: [:lat , :long] ) , status: :ok, location: @customer }
+      else
+        format.html { redirect_to customers_url, notice: 'Couldn\'t retrieve technician\'s location.' }
+        format.json { render json: @customer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
@@ -69,6 +86,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :email, :device_model, :password)
+      params.require(:customer).permit(:name, :email, :device_model, :gcm_id ,:password, location_attributes: [:lat , :long])
     end
 end
