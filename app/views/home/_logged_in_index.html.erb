@@ -15,6 +15,32 @@
 			<th>Status</th>
 		</tr>
 		<tr>
+			<td>Get All</td>
+			<td>GET</td>
+			<td>/customers</td>
+			<td>[{"id": 1,<br>
+		        "name": "John Doe",<br>
+		        "email": "john.doe@example.com",<br>
+		        "device_model": "StarTAC",<br>
+		        "password": "980293jfn98hinf298h3",<br>
+		        "url": "http://<%= @hostname %>/customers/1.json"}]</td>
+			<td>Accept: application/json<br>Content-Type: application/json</td>
+			<td>200</td>
+		</tr>
+		<tr>
+			<td>Get Customer</td>
+			<td>GET</td>
+			<td>/customers/:id</td>
+			<td>{"id": 1,<br>
+		        "name": "John Doe",<br>
+		        "email": "john.doe@example.com",<br>
+		        "device_model": "StarTAC",<br>
+		        "password": "980293jfn98hinf298h3",<br>
+		        "url": "http://<%= @hostname %>/customers/1.json"}</td>
+			<td>Accept: application/json<br>Content-Type: application/json</td>
+			<td>200</td>
+		</tr>
+		<tr>
 			<td>Create</td>
 			<td>POST</td>
 			<td>/customers</td>
@@ -39,25 +65,20 @@
 			<td>200</td>
 		</tr>
 		<tr>
-			<td>Get All</td>
-			<td>GET</td>
-			<td>/customers</td>
-			<td>[{"id": 1,<br>
-		        "name": "John Doe",<br>
-		        "email": "john.doe@example.com",<br>
-		        "device_model": "StarTAC",<br>
-		        "password": "980293jfn98hinf298h3",<br>
-		        "url": "http://<%= @hostname %>/customers/1.json"}]</td>
-			<td>Accept: application/json<br>Content-Type: application/json</td>
-			<td>200</td>
-		</tr>
-		<tr>
 			<td>Delete</td>
 			<td>DELETE</td>
 			<td>/customers/:id</td>
 			<td></td>
 			<td>Accept: application/json<br>Content-Type: application/json</td>
 			<td>204</td>
+		</tr>
+		<tr>
+			<td>Location</td>
+			<td>GET</td>
+			<td>/customers/:id/location</td>
+			<td>{"lat":9.90831,"long":8.90231}</td>
+			<td>Accept: application/json<br>Content-Type: application/json</td>
+			<td>200</td>
 		</tr>
 	</table>
 </div>
@@ -74,6 +95,30 @@
 			<th>Status</th>
 		</tr>
 		<tr>
+			<td>Get All</td>
+			<td>GET</td>
+			<td>/technicians</td>
+			<td>[{"id": 1,<br>
+		        "name": "Master Yoda",<br>
+		        "email": "yoda@jedi.com",<br>
+		        "password": "980293jfn98hinf298h3",<br>
+		        "url": "http://<%= @hostname %>/technicians/1.json"}]</td>
+			<td>Accept: application/json<br>Content-Type: application/json</td>
+			<td>200</td>
+		</tr>
+		<tr>
+			<td>Get Technician</td>
+			<td>GET</td>
+			<td>/technicians/:id</td>
+			<td>{"id": 1,<br>
+		        "name": "Master Yoda",<br>
+		        "email": "yoda@jedi.com",<br>
+		        "password": "980293jfn98hinf298h3",<br>
+		        "url": "http://<%= @hostname %>/technicians/1.json"}</td>
+			<td>Accept: application/json<br>Content-Type: application/json</td>
+			<td>200</td>
+		</tr>
+		<tr>
 			<td>Create</td>
 			<td>POST</td>
 			<td>/technicians</td>
@@ -96,24 +141,68 @@
 			<td>200</td>
 		</tr>
 		<tr>
-			<td>Get All</td>
-			<td>GET</td>
-			<td>/technicians</td>
-			<td>[{"id": 1,<br>
-		        "name": "Master Yoda",<br>
-		        "email": "yoda@jedi.com",<br>
-		        "password": "980293jfn98hinf298h3",<br>
-		        "url": "http://<%= @hostname %>/technicians/1.json"}]</td>
-			<td>Accept: application/json<br>Content-Type: application/json</td>
-			<td>200</td>
-		</tr>
-		<tr>
 			<td>Delete</td>
 			<td>DELETE</td>
 			<td>/technicians/:id</td>
 			<td></td>
 			<td>Accept: application/json<br>Content-Type: application/json</td>
 			<td>204</td>
+		</tr>
+		<tr>
+			<td>Location</td>
+			<td>GET</td>
+			<td>/technicians/:id/location</td>
+			<td>{"lat":9.90831,"long":8.90231}</td>
+			<td>Accept: application/json<br>Content-Type: application/json</td>
+			<td>200</td>
+		</tr>
+	</table>
+</div>
+<br>
+<h3>Location API</h3>
+<div class="table-responsive">
+	<table class="table table-striped table-bordered">
+		<tr>
+			<th>What</th>
+			<th>HTTP Method</th>
+			<th>Path</th>
+			<th>Input/Output</th>
+			<th>Header</th>
+			<th>Status</th>
+		</tr>
+		<tr>
+			<td>Get All</td>
+			<td>GET</td>
+			<td>/locations</td>
+			<td>[{"id":1,<br>
+			    "lat":0.0,<br>
+			    "long":0.0,<br>
+			    "locationable_id":1,<br>
+			    "locationable_type":"Customer",<br>
+			    "url":"http://localhost:3000/locations/1.json"}]</td>
+			<td>Accept: application/json<br>Content-Type: application/json</td>
+			<td>200</td>
+		</tr>
+		<tr>
+			<td>Get Location</td>
+			<td>GET</td>
+			<td>/locations/:id</td>
+			<td>{"id":1,<br>
+			    "lat":0.0,<br>
+			    "long":0.0,<br>
+			    "locationable_id":1,<br>
+			    "locationable_type":"Customer",<br>
+			    "url":"http://localhost:3000/locations/1.json"}</td>
+			<td>Accept: application/json<br>Content-Type: application/json</td>
+			<td>200</td>
+		</tr>
+		<tr>
+			<td>Update</td>
+			<td>PUT</td>
+			<td>/locations/:id</td>
+			<td>{"location":{"lat":8.666, "long":7.666}}</td>
+			<td>Accept: application/json<br>Content-Type: application/json</td>
+			<td>200</td>
 		</tr>
 	</table>
 </div>
