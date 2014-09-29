@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :locations , only: [:index, :show, :update]
+
   resources :technicians
 
   resources :customers
@@ -10,8 +12,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get 'technicians/:id/location' => 'technicians#technician_location' , as: 'technician_location'
+
+  get 'customers/:id/location' => 'customers#customer_location' , as: 'customer_location'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

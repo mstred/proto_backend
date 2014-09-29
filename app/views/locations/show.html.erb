@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @location.lat %>
+</p>
+
+<p>
+  <strong>Long:</strong>
+  <%= @location.long %>
+</p>
+
+<p>
+  <strong>Loc:</strong>
+  <%= @location.locationable_id %>
+</p>
+
+<p>
+  <strong>Loc type:</strong>
+  <%= @location.locationable_type %>
+</p>
+
+<%= link_to 'Back', locations_path %>

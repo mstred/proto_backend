@@ -3,6 +3,7 @@ require 'test_helper'
 class CustomersControllerTest < ActionController::TestCase
   setup do
     @customer = customers(:one)
+    @customer.location = Location.new
   end
 
   test "should get index" do
@@ -18,7 +19,7 @@ class CustomersControllerTest < ActionController::TestCase
 
   test "should create customer" do
     assert_difference('Customer.count') do
-      post :create, customer: { device_model: @customer.device_model, email: @customer.email, name: @customer.name, password: @customer.password }
+      post :create, customer: { device_model: @customer.device_model, email: @customer.email, name: @customer.name, password: @customer.password , gcm_id: @customer.gcm_id , location_attributes: {lat: 0,long: 0}}
     end
 
     assert_redirected_to customer_path(assigns(:customer))
@@ -35,7 +36,7 @@ class CustomersControllerTest < ActionController::TestCase
   end
 
   test "should update customer" do
-    patch :update, id: @customer, customer: { device_model: @customer.device_model, email: @customer.email, name: @customer.name, password: @customer.password }
+    patch :update, id: @customer, customer: { device_model: @customer.device_model, email: @customer.email, name: @customer.name, password: @customer.password , gcm_id: @customer.gcm_id }
     assert_redirected_to customer_path(assigns(:customer))
   end
 
@@ -45,5 +46,10 @@ class CustomersControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to customers_path
+  end
+
+  test "should show customer location" do
+    get :customer_location, id: @customer
+    assert_redirected_to @customer.location
   end
 end

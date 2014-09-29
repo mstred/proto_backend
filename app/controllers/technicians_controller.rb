@@ -1,5 +1,5 @@
 class TechniciansController < ApplicationController
-  before_action :set_technician, only: [:show, :edit, :update, :destroy]
+  before_action :set_technician, only: [:show, :edit, :update, :destroy, :technician_location]
 
   # GET /technicians
   # GET /technicians.json
@@ -25,6 +25,11 @@ class TechniciansController < ApplicationController
   # POST /technicians.json
   def create
     @technician = Technician.new(technician_params)
+     #If location params is not passed
+     # creates a new entry with null lat and long
+     if @technician.location == nil
+       @technician.build_location
+     end
 
     respond_to do |format|
       if @technician.save
@@ -61,6 +66,19 @@ class TechniciansController < ApplicationController
     end
   end
 
+  #GET /technicians/1/location
+  def technician_location
+    respond_to do |format|
+      if @technician.location != nil
+        format.html {redirect_to @technician.location}
+        format.json { render json: @technician.location.to_json(only: [:lat , :long] ) , status: :ok, location: @technician }
+      else
+        format.html { redirect_to technicians_url, notice: 'Couldn\'t retrieve technician\'s location.' }
+        format.json { render json: @technician.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_technician
@@ -69,6 +87,6 @@ class TechniciansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def technician_params
-      params.require(:technician).permit(:name, :email, :password, :gcm_id)
+      params.require(:technician).permit(:name, :email, :password, :gcm_id, location_attributes: [:lat , :long])
     end
 end

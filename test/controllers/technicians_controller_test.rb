@@ -3,6 +3,7 @@ require 'test_helper'
 class TechniciansControllerTest < ActionController::TestCase
   setup do
     @technician = technicians(:one)
+    @technician.location = Location.new
   end
 
   test "should get index" do
@@ -45,5 +46,10 @@ class TechniciansControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to technicians_path
+  end
+
+  test "should show technician location" do
+    get :technician_location, id: @technician
+    assert_redirected_to @technician.location
   end
 end
