@@ -1,0 +1,222 @@
+<div class="panel-group" id="accordion">  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseCustGetAll">
+          Get All Customers
+        </a>
+      </h4>
+    </div>
+  <div id="collapseCustGetAll" class="panel-collapse collapse">
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th>What</th>
+            <th>HTTP Method</th>
+            <th>Path</th>
+            <th>Input/Output</th>
+            <th>Header</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>Get All</td>
+            <td>GET</td>
+            <td>/customers</td>
+            <td>[{"id": 1,<br>
+              "name": "John Doe",<br>
+              "email": "john.doe@example.com",<br>
+              "device_model": "StarTAC",<br>
+              "password": "980293jfn98hinf298h3",<br>
+              "url": "http://<%= @hostname %>/customers/1.json"}]</td>
+              <td>Accept: application/json<br>Content-Type: application/json</td>
+              <td>200</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseCustGetById">
+          Get Customer by Id
+        </a>
+      </h4>
+    </div>
+    <div id="collapseCustGetById" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>What</th>
+              <th>HTTP Method</th>
+              <th>Path</th>
+              <th>Input/Output</th>
+              <th>Header</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Get Customer</td>
+              <td>GET</td>
+              <td>/customers/:id</td>
+              <td>{"id": 1,<br>
+                "name": "John Doe",<br>
+                "email": "john.doe@example.com",<br>
+                "device_model": "StarTAC",<br>
+                "password": "980293jfn98hinf298h3",<br>
+                "url": "http://<%= @hostname %>/customers/1.json"}</td>
+              <td>Accept: application/json<br>Content-Type: application/json</td>
+              <td>200</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseCustCreate">
+          Create a new Customer
+        </a>
+      </h4>
+    </div>
+    <div id="collapseCustCreate" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>What</th>
+              <th>HTTP Method</th>
+              <th>Path</th>
+              <th>Input/Output</th>
+              <th>Header</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Create</td>
+              <td>POST</td>
+              <td>/customers</td>
+              <td>{"customer":<br>{"name":"John Doe",
+                <br>"email":"john.doe@example.com",
+                <br>"password":"980293jfn98hinf298h3",
+                <br>"device_model":"StarTAC",<br>
+                "gcm_id":"09jcm892j3p89hc2983h9982"}}</td>
+                <td>Accept: application/json<br>Content-Type: application/json</td>
+                <td>201</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseCustUpdate">
+          Update an existing Customer
+        </a>
+      </h4>
+    </div>
+    <div id="collapseCustUpdate" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>What</th>
+              <th>HTTP Method</th>
+              <th>Path</th>
+              <th>Input/Output</th>
+              <th>Header</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Update</td>
+              <td>PUT</td>
+              <td>/customers/:id</td>
+              <td>{"customer":<br>{"name":"John Doe",
+                <br>"email":"john.doe@example.com",
+                <br>"password":"980293jfn98hinf298h3",
+                <br>"device_model":"StarTAC",<br>
+                "gcm_id":"09jcm892j3p89hc2983h9982"}}</td>
+              <td>Accept: application/json<br>Content-Type: application/json</td>
+              <td>200</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseCustDelete">
+          Delete existing Customer
+        </a>
+      </h4>
+    </div>
+    <div id="collapseCustDelete" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>What</th>
+              <th>HTTP Method</th>
+              <th>Path</th>
+              <th>Input/Output</th>
+              <th>Header</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Delete</td>
+              <td>DELETE</td>
+              <td>/customers/:id</td>
+              <td></td>
+              <td>Accept: application/json<br>Content-Type: application/json</td>
+              <td>204</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseCustLocation">
+          Get Customer's Location
+        </a>
+        <span class="label label-default">New</span>
+      </h4>
+    </div>
+    <div id="collapseCustLocation" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>What</th>
+              <th>HTTP Method</th>
+              <th>Path</th>
+              <th>Input/Output</th>
+              <th>Header</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Location</td>
+              <td>GET</td>
+              <td>/customers/:id/location</td>
+              <td>{"lat":9.90831,"long":8.90231}</td>
+              <td>Accept: application/json<br>Content-Type: application/json</td>
+              <td>200</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

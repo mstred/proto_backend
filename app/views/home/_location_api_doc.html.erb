@@ -1,0 +1,117 @@
+<div class="panel-group" id="accordion">  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseLocGetAll">
+          Get All Locations
+        </a>
+        <span class="label label-default">New</span>
+      </h4>
+    </div>
+    <div id="collapseLocGetAll" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>What</th>
+              <th>HTTP Method</th>
+              <th>Path</th>
+              <th>Input/Output</th>
+              <th>Header</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Get All</td>
+              <td>GET</td>
+              <td>/locations</td>
+              <td>[{"id":1,<br>
+                "lat":0.0,<br>
+                "long":0.0,<br>
+                "locationable_id":1,<br>
+                "locationable_type":"Customer",<br>
+                "url":"http://localhost:3000/locations/1.json"}]</td>
+              <td>Accept: application/json<br>Content-Type: application/json</td>
+              <td>200</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseLocGetById">
+          Get Location by Id
+        </a>
+        <span class="label label-default">New</span>
+      </h4>
+    </div>
+    <div id="collapseLocGetById" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>What</th>
+              <th>HTTP Method</th>
+              <th>Path</th>
+              <th>Input/Output</th>
+              <th>Header</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Get Location</td>
+              <td>GET</td>
+              <td>/locations/:id</td>
+              <td>{"id":1,<br>
+                "lat":0.0,<br>
+                "long":0.0,<br>
+                "locationable_id":1,<br>
+                "locationable_type":"Customer",<br>
+                "url":"http://localhost:3000/locations/1.json"}</td>
+              <td>Accept: application/json<br>Content-Type: application/json</td>
+              <td>200</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseLocCreate">
+          Update Location
+        </a>
+        <span class="label label-default">New</span>
+      </h4>
+    </div>
+    <div id="collapseLocCreate" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>What</th>
+              <th>HTTP Method</th>
+              <th>Path</th>
+              <th>Input/Output</th>
+              <th>Header</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Update</td>
+              <td>PUT</td>
+              <td>/locations/:id</td>
+              <td>{"location":{"lat":8.666, "long":7.666}}</td>
+              <td>Accept: application/json<br>Content-Type: application/json</td>
+              <td>200</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
