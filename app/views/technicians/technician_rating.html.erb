@@ -1,0 +1,20 @@
+<h3><p>Technician: <%= @technician.name %></p></h3>
+<% sum = 0 %>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>
+                Stars
+            </th>
+        </tr>
+        <% @technician.ratings.each do |rating| %>
+        <% sum += rating.stars %>
+        <tr>
+            <td>
+                <%= rating.stars %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+<h4><p>Average rating: <%= (sum.to_f/@technician.ratings.count) %></p></h4>

@@ -1,5 +1,5 @@
 class TechniciansController < ApplicationController
-  before_action :set_technician, only: [:show, :edit, :update, :destroy, :technician_location]
+  before_action :set_technician, only: [:show, :edit, :update, :destroy, :technician_location, :technician_ratings]
 
   # GET /technicians
   # GET /technicians.json
@@ -67,6 +67,7 @@ class TechniciansController < ApplicationController
   end
 
   #GET /technicians/1/location
+  #GET /technicians/1/location.json
   def technician_location
     respond_to do |format|
       if @technician.location != nil
@@ -76,6 +77,15 @@ class TechniciansController < ApplicationController
         format.html { redirect_to technicians_url, notice: 'Couldn\'t retrieve technician\'s location.' }
         format.json { render json: @technician.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  #GET /technicians/1/ratings
+  #GET /technicians/1/ratings.json
+  def technician_ratings
+    respond_to do |format|
+      format.html {render "technician_rating"}
+      format.json {render json: @technician.ratings.to_json, status: :ok, location: @technician }
     end
   end
 
