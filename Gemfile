@@ -38,6 +38,8 @@ gem 'devise'
 #Heroku gem
 gem 'rails_12factor', group: :production
 
+#Add vendor prefix automatically
+gem 'autoprefixer-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
