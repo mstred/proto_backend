@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  stars: 1
+rating_one:
+  stars: 3
+  comment: Dummy Comment
   technician_id: 1
 
-two:
-  stars: 1
-  technician_id: 1
+rating_two:
+  stars: 4
+  comment: Dummy Comment
+  technician_id: 2

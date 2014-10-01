@@ -2,40 +2,26 @@ require 'test_helper'
 
 class RatingsControllerTest < ActionController::TestCase
   setup do
-    @rating = ratings(:one)
+    @request.env['HTTP_REFERER'] =  'http://test.host/technicians/1/ratings'
+    @technician = technicians(:technician_one)
+    @rating = ratings(:rating_one)
   end
 
   test "should get index" do
-    get :index
+    get :index, technician_id: @technician.id
     assert_response :success
     assert_not_nil assigns(:ratings)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create rating" do
     assert_difference('Rating.count') do
-      post :create, rating: { stars: @rating.stars, technician_id: @rating.technician_id }
+      post :create, rating: @rating.attributes, technician_id: @technician.id
     end
-
     assert_redirected_to rating_path(assigns(:rating))
   end
 
-  test "should show rating" do
-    get :show, id: @rating
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @rating
-    assert_response :success
-  end
-
   test "should update rating" do
-    patch :update, id: @rating, rating: { stars: @rating.stars, technician_id: @rating.technician_id }
+    patch :update, id: @rating, rating: { stars: @rating.stars, technician_id: @rating.technician_id, comment: @rating.comment }
     assert_redirected_to rating_path(assigns(:rating))
   end
 
@@ -44,6 +30,6 @@ class RatingsControllerTest < ActionController::TestCase
       delete :destroy, id: @rating
     end
 
-    assert_redirected_to ratings_path
+    assert_redirected_to technician_ratings_path(:technician_id => 1)
   end
 end
