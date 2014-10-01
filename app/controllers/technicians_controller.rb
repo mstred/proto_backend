@@ -1,5 +1,5 @@
 class TechniciansController < ApplicationController
-  before_action :set_technician, only: [:show, :edit, :update, :destroy, :technician_location]
+  before_action :set_technician, only: [:show, :edit, :update, :destroy, :technician_location, :technician_ratings]
 
   # GET /technicians
   # GET /technicians.json
@@ -10,6 +10,7 @@ class TechniciansController < ApplicationController
   # GET /technicians/1
   # GET /technicians/1.json
   def show
+    @ratings = @technician.ratings
   end
 
   # GET /technicians/new
@@ -67,6 +68,7 @@ class TechniciansController < ApplicationController
   end
 
   #GET /technicians/1/location
+  #GET /technicians/1/location.json
   def technician_location
     respond_to do |format|
       if @technician.location != nil

@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
   resources :locations , only: [:index, :show, :update]
 
-  resources :technicians
+  resources :technicians do
+    resources :ratings, except: [:update, :destroy, :show ,:new, :edit]
+  end
+
+  resources :ratings, only: [:update, :destroy]
 
   resources :customers
 
@@ -12,9 +17,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  get 'technicians/:id/location' => 'technicians#technician_location' , as: 'technician_location'
+  get 'technicians/location/:id' => 'technicians#technician_location' , as: 'technician_location'
 
-  get 'customers/:id/location' => 'customers#customer_location' , as: 'customer_location'
+  get 'customers/location/:id' => 'customers#customer_location' , as: 'customer_location'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
