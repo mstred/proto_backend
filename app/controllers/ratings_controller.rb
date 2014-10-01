@@ -1,10 +1,11 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
+  before_action :set_technician, only: [:index, :new, :create]
 
   # GET /ratings
   # GET /ratings.json
   def index
-    @ratings = Rating.all
+    @ratings = @technician.ratings
   end
 
   # GET /ratings/1
@@ -14,7 +15,7 @@ class RatingsController < ApplicationController
 
   # GET /ratings/new
   def new
-    @rating = Rating.new
+    @rating = @technician.ratings.build
   end
 
   # GET /ratings/1/edit
@@ -24,7 +25,7 @@ class RatingsController < ApplicationController
   # POST /ratings
   # POST /ratings.json
   def create
-    @rating = Rating.new(rating_params)
+    @rating = @technician.ratings.build(rating_params)
 
     respond_to do |format|
       if @rating.save
@@ -56,7 +57,7 @@ class RatingsController < ApplicationController
   def destroy
     @rating.destroy
     respond_to do |format|
-      format.html { redirect_to ratings_url, notice: 'Rating was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Rating was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +68,12 @@ class RatingsController < ApplicationController
       @rating = Rating.find(params[:id])
     end
 
+    def set_technician
+      @technician = Technician.find(params[:technician_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def rating_params
-      params.require(:rating).permit(:stars, :technician_id)
+      params.require(:rating).permit(:stars, :comment, :technician_id)
     end
 end

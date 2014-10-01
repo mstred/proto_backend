@@ -10,6 +10,7 @@ class TechniciansController < ApplicationController
   # GET /technicians/1
   # GET /technicians/1.json
   def show
+    @ratings = @technician.ratings
   end
 
   # GET /technicians/new
@@ -77,15 +78,6 @@ class TechniciansController < ApplicationController
         format.html { redirect_to technicians_url, notice: 'Couldn\'t retrieve technician\'s location.' }
         format.json { render json: @technician.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  #GET /technicians/1/ratings
-  #GET /technicians/1/ratings.json
-  def technician_ratings
-    respond_to do |format|
-      format.html {render "technician_rating"}
-      format.json {render json: @technician.ratings.to_json, status: :ok, location: @technician }
     end
   end
 

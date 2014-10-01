@@ -1,24 +1,52 @@
 <p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <p>
+          <strong>Name:</strong>
+          <%= @technician.name %>
+        </p>
+    </div><!-- panel-heading -->
+    <div class="panel-body">
+        <p>
+          <strong>Email:</strong>
+          <%= @technician.email %>
+        </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @technician.name %>
-</p>
+        <p>
+          <strong>Password:</strong>
+          <%= @technician.password %>
+        </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @technician.email %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @technician.password %>
-</p>
-
-<p>
-  <strong>Gcm:</strong>
-  <%= @technician.gcm_id %>
-</p>
-
+        <p>
+          <strong>Gcm:</strong>
+          <%= @technician.gcm_id %>
+        </p>
+    </div><!-- panel-body -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>
+                        Ratings
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @ratings.each do |rating| %>
+                <tr>
+                    <td>
+                        <% rating.stars.times do |i| %>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <% end %>
+                    </td>
+                    <td>
+                        <%= rating.comment %>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div><!-- table-responsive -->
+</div><!-- panel -->
 <%= link_to 'Edit', edit_technician_path(@technician) %> |
 <%= link_to 'Back', technicians_path %>
