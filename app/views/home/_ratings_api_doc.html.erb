@@ -1,0 +1,142 @@
+<div class="panel-group" id="accordion">  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseRatingGetAll">
+          Get Technician's Ratings
+        </a>
+        <span class="label label-default">New</span>
+      </h4>
+    </div>
+    <div id="collapseRatingGetAll" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <tr>
+              <th>What</th>
+              <th>HTTP Method</th>
+              <th>Path</th>
+              <th>Input/Output</th>
+              <th>Header</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>Get All</td>
+              <td>GET</td>
+              <td>/technicians/:technician_id/ratings</td>
+              <td>[{"id":9,<br>"stars":5,<br>"comment":"Don't be fooled by his size or color, he'll fix your StartTAC in no time.",<br>"technician_id":1,<br>"url":"http://<%= @hostname %>/ratings/9.json"}]</td>
+                <td>Accept: application/json<br>Content-Type: application/json</td>
+                <td>200</td>
+              </tr>
+            </table>
+          </div>
+        </div><!-- end .panel-body -->
+      </div>
+    </div><!-- end .panel -->
+
+      <!-- .panel -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseRatingCreate">
+              Create Rating/Comment for a Technician
+            </a>
+            <span class="label label-default">New</span>
+          </h4>
+        </div>
+        <div id="collapseRatingCreate" class="panel-collapse collapse">
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered">
+                <tr>
+                  <th>What</th>
+                  <th>HTTP Method</th>
+                  <th>Path</th>
+                  <th>Input/Output</th>
+                  <th>Header</th>
+                  <th>Status</th>
+                </tr>
+                <tr>
+                  <td>Create</td>
+                  <td>POST</td>
+                  <td>/technicians/:technician_id/ratings</td>
+                  <td>{"rating":<br>{"stars":4,<br>"comment":"Told me to buy a new mobile, I accepted, I still don't know why."}}</td>
+                    <td>Accept: application/json<br>Content-Type: application/json</td>
+                    <td>201</td>
+                  </tr>
+                </table>
+              </div>
+            </div><!-- end .panel-body -->
+          </div>
+        </div><!-- end .panel -->
+        <!-- .panel -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseRatingUpdate">
+                Update an existing Technician
+              </a>
+              <span class="label label-default">New</span>
+            </h4>
+          </div>
+          <div id="collapseRatingUpdate" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                  <tr>
+                    <th>What</th>
+                    <th>HTTP Method</th>
+                    <th>Path</th>
+                    <th>Input/Output</th>
+                    <th>Header</th>
+                    <th>Status</th>
+                  </tr>
+                  <tr>
+                    <td>Update</td>
+                    <td>PUT</td>
+                    <td>/ratings/:id</td>
+                    <td>{"rating":<br>{"stars":4,<br>"comment":"Told me to buy a new mobile, I accepted, I still don't know why."}}</td>
+                      <td>Accept: application/json<br>Content-Type: application/json</td>
+                      <td>200</td>
+                    </tr>
+                  </table>
+                </div>
+              </div><!-- end .panel-body -->
+            </div>
+          </div><!-- end .panel -->
+          <!-- .panel -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseRatingDelete">
+                  Delete existing Technician
+                </a>
+                <span class="label label-default">New</span>
+              </h4>
+            </div>
+            <div id="collapseRatingDelete" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered">
+                    <tr>
+                      <th>What</th>
+                      <th>HTTP Method</th>
+                      <th>Path</th>
+                      <th>Input/Output</th>
+                      <th>Header</th>
+                      <th>Status</th>
+                    </tr>
+                    <tr>
+                      <td>Delete</td>
+                      <td>DELETE</td>
+                      <td>/ratings/:id</td>
+                      <td></td>
+                      <td>Accept: application/json<br>Content-Type: application/json</td>
+                      <td>204</td>
+                    </tr>
+                  </table>
+                </div>
+              </div><!-- end .panel-body -->
+            </div>
+          </div><!-- .panel -->
+        </div>
