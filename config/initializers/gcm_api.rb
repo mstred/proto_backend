@@ -1,0 +1,1 @@
+GCM_API_KEY = ENV["GCM_API_KEY"]

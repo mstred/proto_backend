@@ -40,6 +40,9 @@ gem 'rails_12factor', group: :production
 
 #Add vendor prefix automatically
 gem 'autoprefixer-rails'
+
+# Google Cloud Messaging
+gem 'gcm'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
