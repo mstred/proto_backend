@@ -1,36 +1,36 @@
 <h1>Listing customers</h1>
 <div class="table-responsive">
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Device model</th>
-      <th>Password</th>
-      <th>GMC ID</th>
-      <th>Location</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customers.each do |customer| %>
+  <table class="table table-striped table-bordered">
+    <thead>
       <tr>
-        <td><%= customer.name %></td>
-        <td><%= customer.email %></td>
-        <td><%= customer.device_model %></td>
-        <td><%= customer.password %></td>
-        <td><%= customer.gcm_id %></td>
-        <% if customer.location != nil %>
-        <td>Lat: <%= customer.location.lat %><br>Long: <%= customer.location.long %></td>
-        <% end %>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Device model</th>
+        <th>Password</th>
+        <th>GMC ID</th>
+        <th>Location</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.name %></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.device_model %></td>
+          <td><%= customer.password %></td>
+          <td><%= customer.gcm_id %></td>
+          <% if customer.location != nil %>
+          <td>Lat: <%= customer.location.lat %><br>Long: <%= customer.location.long %></td>
+          <% end %>
+          <td><%= link_to 'Show', customer %></td>
+          <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+          <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 <br>
 
