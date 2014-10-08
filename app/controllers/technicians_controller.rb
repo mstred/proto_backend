@@ -1,4 +1,5 @@
 class TechniciansController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_technician, only: [:show, :edit, :update, :destroy, :technician_location, :technician_ratings]
 
   # GET /technicians
