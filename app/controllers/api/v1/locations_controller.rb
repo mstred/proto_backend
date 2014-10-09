@@ -1,7 +1,6 @@
 module Api
     module V1
-        class LocationsController < ApplicationController
-            respond_to :json
+        class LocationsController < ApiApplicationController
 
             def index
                 respond_with Location.all
