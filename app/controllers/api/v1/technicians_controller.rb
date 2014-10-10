@@ -2,7 +2,8 @@ module Api
 	module V1
 		class TechniciansController < ApiApplicationController
             before_action :set_technician, only: [ :technician_location ]
-			def index
+
+            def index
                 respond_with Technician.all
             end
 
