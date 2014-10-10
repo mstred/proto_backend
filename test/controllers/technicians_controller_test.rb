@@ -2,6 +2,7 @@ require 'test_helper'
 
 class TechniciansControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @technician = technicians(:technician_one)
     @technician.location = Location.new
   end

@@ -1,6 +1,7 @@
 require 'gcm'
 
 class MessageController < ApplicationController
+    before_action :authenticate_user!
     before_filter :set_gcm_api_key
 
     def message_technician
