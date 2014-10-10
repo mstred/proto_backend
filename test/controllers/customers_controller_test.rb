@@ -2,6 +2,7 @@ require 'test_helper'
 
 class CustomersControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @customer = customers(:customer_one)
     @customer.location = Location.new
   end

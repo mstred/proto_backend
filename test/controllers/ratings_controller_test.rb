@@ -2,6 +2,7 @@ require 'test_helper'
 
 class RatingsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @request.env['HTTP_REFERER'] =  'http://test.host/technicians/1/ratings'
     @technician = technicians(:technician_one)
     @rating = ratings(:rating_one)
