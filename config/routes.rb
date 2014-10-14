@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       get 'customers/location/:id' => 'customers#customer_location' , as: 'customer_location'
       post '/message/technician/:technician_id' => 'message#message_technician', as: 'message_technician' 
       post '/message/customer/:customer_id' => 'message#message_customer', as: 'message_customer'
+
+      post 'customers/login' => 'customers_login#login' , as: 'customers_login'
     end
   end
 

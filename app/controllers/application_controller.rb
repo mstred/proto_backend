@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
   def set_hostname
   	@hostname = request.host
   end
+
+  def render_unauthorized
+    self.headers['WWW-Authenticate'] = 'Token realm="Application"'
+    render json: 'Bad credentials', status: 401
+  end
 end
