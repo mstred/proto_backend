@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       post '/message/customer/:customer_id' => 'message#message_customer', as: 'message_customer'
 
       post 'customers/login' => 'customers_login#login' , as: 'customers_login'
+      post 'technicians/login' => 'technicians_login#login' , as: 'technicians_login'
     end
   end
 
