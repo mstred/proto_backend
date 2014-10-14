@@ -11,19 +11,21 @@ module Api
             end
 
             def check_customer_access_token!
-                customer = Customer.find_by_access_token(request.headers['Token'])
-                if customer != nil
-                    return true
+                token = request.headers['Token']
+                if token.blank?
+                    return false
                 end
-                return false
+                customer = Customer.find_by_access_token(token)
+                customer.present?
             end
 
             def check_technician_access_token!
-                technician = Technician.find_by_access_token(request.headers['Token'])
-                if technician != nil
-                    return true
+                token = request.headers['Token']
+                if token.blank?
+                    return false
                 end
-                return false
+                technician = Technician.find_by_access_token(request.headers['Token'])
+                technician.present?
             end
         end
     end
