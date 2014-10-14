@@ -1,7 +1,8 @@
 module Api
 	module V1
 		class CustomersController < ApiApplicationController
-
+            skip_before_action :authenticate_token! , only: [:create]
+            
             def index
                 respond_with Customer.all
             end
@@ -31,7 +32,7 @@ module Api
                     begin
                         @customer = Customer.find(params[:id])
                     rescue ActiveRecord::RecordNotFound
-                        respond_with @technician , status: :not_found
+                        respond_with @customer , status: :not_found
                     end
                 end
                 # Never trust parameters from the scary internet, only allow the white list through.
