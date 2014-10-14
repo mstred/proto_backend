@@ -1,6 +1,7 @@
 module Api
 	module V1
 		class TechniciansController < ApiApplicationController
+            skip_before_action :authenticate_token! , only: [:create]
             before_action :set_technician, only: [ :technician_location ]
 
             def index

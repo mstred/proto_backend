@@ -2,7 +2,7 @@ module Api
     module V1
         class ApiApplicationController < ApplicationController
             respond_to :json
-            before_filter :authenticate_token!
+            before_action :authenticate_token!
 
             def authenticate_token!
                 unless check_customer_access_token! || check_technician_access_token!
