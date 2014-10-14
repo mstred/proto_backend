@@ -27,6 +27,17 @@
     <%= f.label :gcm_id %><br>
     <%= f.text_field :gcm_id %>
   </div>
+  <%= f.fields_for :location do |ff| %>
+  <div class="field">
+    <%= ff.label :lat %><br>
+    <%= ff.text_field :lat %>
+  </div>
+  <div class="field">
+    <%= ff.label :long %><br>
+    <%= ff.text_field :long %>
+  </div>
+  <% end %>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

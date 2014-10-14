@@ -21,6 +21,7 @@ class TechniciansController < ApplicationController
 
   # GET /technicians/1/edit
   def edit
+    @location = @technician.location
   end
 
   # POST /technicians
