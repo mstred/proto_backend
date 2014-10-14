@@ -1,4 +1,38 @@
-<div class="panel-group" id="accordion">  
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTechLogin">
+          Technician Login
+        </a>
+        <span class="label label-default">New</span>
+      </h4>
+    </div>
+  <div id="collapseTechLogin" class="panel-collapse collapse">
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th>What</th>
+            <th>HTTP Method</th>
+            <th>Path</th>
+            <th>Input/Output</th>
+            <th>Header</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>Login</td>
+            <td>POST</td>
+            <td>/technicians/login</td>
+            <td>{"login":<br>{"user_email": "john.doe@example.com",<br> "user_password":"980293jfn98hinf298h3"}}</td>
+              <td>Accept: application/json<br>Content-Type: application/json</td>
+              <td>200</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
