@@ -3,7 +3,7 @@ module Api
         class OrdersController < ApiApplicationController
 
             def index
-                respond_with Order.all
+                respond_with Order.filter(params.slice(:uid,:customer_id,:technician_id,:status))
             end
 
             def show
@@ -16,10 +16,6 @@ module Api
 
             def update
                 respond_with Order.update(params[:id], order_params)
-            end
-
-            def search
-                @order = Order.find_by(params)
             end
 
             def destroy

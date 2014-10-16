@@ -1,0 +1,35 @@
+<% if @orders.size > 0 %>
+    <div class="table-responsive">
+    <p><h3>Orders</h3></p>
+    <table class="table table-condensed table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    UUID
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @orders.each do |order|  %>
+                <tr>
+                    <td>
+                        <a href=<%= order_path %>><%= order.uid %></a>
+                    </td>
+                    <td>
+                        <%= order.description %>
+                    </td>
+                    <td>
+                        <%= order.status %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    </div>
+<% end %>

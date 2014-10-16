@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<div class="panel panel-default">
+    <div class="panel-heading">
 <p>
   <strong>Name:</strong>
   <%= @customer.name %>
@@ -24,6 +25,11 @@
   <strong>Password:</strong>
   <%= @customer.password %>
 </p>
-
+<% @location = @customer.location %>
+<%= render 'layouts/show_map.html.erb' %>
+</div><!-- panel-body --> 
+<% @orders = @customer.orders %>
+<%= render 'orders/list_orders.html.erb' %>
+</div><!-- panel -->
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
