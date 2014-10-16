@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014222404) do
+ActiveRecord::Schema.define(version: 20141015184246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 20141014222404) do
     t.float    "long"
     t.integer  "locationable_id"
     t.string   "locationable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.string   "uid"
+    t.text     "description"
+    t.integer  "customer_id"
+    t.integer  "technician_id"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
