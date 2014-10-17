@@ -21,32 +21,12 @@
           <strong>Gcm:</strong>
           <%= @technician.gcm_id %>
         </p>
+        <% @location = @technician.location %>
+        <%= render 'layouts/show_map.html.erb' %>
     </div><!-- panel-body -->
-    <div class="table-responsive">
-        <table class="table table-condensed table-bordered table-condensed">
-            <thead>
-                <tr>
-                    <th>
-                        Ratings
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @ratings.each do |rating| %>
-                <tr>
-                    <td>
-                        <% rating.stars.times do |i| %>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <% end %>
-                    </td>
-                    <td>
-                        <%= rating.comment %>
-                    </td>
-                </tr>
-                <% end %>
-            </tbody>
-        </table>
-    </div><!-- table-responsive -->
+    <%= render 'ratings/show_ratings.html.erb' %>
+    <% @orders = @technician.orders %>
+    <%= render 'orders/list_orders.html.erb' %>
 </div><!-- panel -->
 <%= link_to 'Edit', edit_technician_path(@technician) %> |
-<%= link_to 'Back', technicians_path %>
+<%= link_to 'Back', :back %>

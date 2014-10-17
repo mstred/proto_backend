@@ -1,0 +1,27 @@
+<% if @ratings.size > 0 %>
+    <div class="table-responsive">
+        <table class="table table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Ratings
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @ratings.each do |rating| %>
+                    <tr>
+                        <td>
+                            <% rating.stars.times do |i| %>
+                                <span class="glyphicon glyphicon-star"></span>
+                            <% end %>
+                        </td>
+                        <td>
+                            <%= rating.comment %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div><!-- table-responsive -->
+<% end %>
