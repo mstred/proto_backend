@@ -19,7 +19,7 @@
             <% @orders.each do |order|  %>
                 <tr>
                     <td>
-                        <a href=<%= order_path %>><%= order.uid %></a>
+                        <%= link_to order.uid, order %>
                     </td>
                     <td>
                         <%= order.description %>
