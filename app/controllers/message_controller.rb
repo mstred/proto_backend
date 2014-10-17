@@ -2,7 +2,6 @@ require 'gcm'
 
 class MessageController < ApplicationController
     before_action :authenticate_user!
-    before_filter :set_gcm_api_key
 
     def message_technician
         @technician = Technician.find(params[:technician_id])
@@ -37,7 +36,7 @@ class MessageController < ApplicationController
     private
 
     def send_gcm_message(gcm_id, payload)
-        gcm = GCM.new(@api_key)
+        gcm = GCM.new(@google_api_key)
         response = gcm.send_notification(gcm_id,payload)
         return response
     end
@@ -45,9 +44,5 @@ class MessageController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
       params.require(:message).permit(:technician_id, :customer_id, :msg, :collapse_key)
-    end
-
-    def set_gcm_api_key
-        @api_key = GCM_API_KEY
     end
 end

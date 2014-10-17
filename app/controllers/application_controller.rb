@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  before_filter :set_hostname, :set_google_api_keys
+  before_filter :set_hostname
+  before_filter :set_google_api_keys
   protect_from_forgery with: :null_session
 
   def set_hostname
@@ -14,7 +15,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_google_api_keys
-    @gcm_api_key = GCM_API_KEY
     @google_api_key = GOOGLE_API_KEY
   end
 end
