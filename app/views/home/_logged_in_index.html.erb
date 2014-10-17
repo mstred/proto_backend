@@ -1,6 +1,7 @@
 <%= link_to "All customers", customers_path, class: 'btn btn-primary btn-lg' %>
 <%= link_to "All technicians", technicians_path, class: 'btn btn-success btn-lg' %>
 <%= link_to "All locations", locations_path, class: 'btn btn-warning btn-lg' %>
+<%= link_to "All orders", orders_path, class: 'btn btn-primary btn-lg' %>
 <h1>Base API Url</h1>
 <p><h3>http://<%= @hostname %>/api/v1  <span class="label label-danger">New</span></h3></p>
 <h1> API Methods </h1>
@@ -14,3 +15,5 @@
 <%= render 'home/location_api_doc.html.erb' %>
 <h3>Messaging API</h3>
 <%= render 'home/message_api_doc.html.erb' %>
+<h3>Order API <span class="label label-default">New</span></h3>
+<%= render 'home/order_api_doc.html.erb' %>
