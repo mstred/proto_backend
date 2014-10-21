@@ -6,7 +6,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Device model</th>
-        <th>Password</th>
+        <th>Access Token</th>
         <th>GMC ID</th>
         <th>Location</th>
         <th colspan="3"></th>
@@ -19,7 +19,7 @@
           <td><%= customer.name %></td>
           <td><%= customer.email %></td>
           <td><%= customer.device_model %></td>
-          <td><%= customer.password %></td>
+          <td><%= customer.access_token %></td>
           <td><%= customer.gcm_id %></td>
           <% if customer.location != nil %>
           <td>Lat: <%= customer.location.lat %><br>Long: <%= customer.location.long %></td>

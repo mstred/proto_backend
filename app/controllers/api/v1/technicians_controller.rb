@@ -2,14 +2,14 @@ module Api
 	module V1
 		class TechniciansController < ApiApplicationController
             skip_before_action :authenticate_token! , only: [:create]
-            before_action :set_technician, only: [ :technician_location ]
+            before_action :set_technician, only: [  :show, :update, :destroy, :technician_location ]
 
             def index
                 respond_with Technician.all
             end
 
             def show
-                respond_with Technician.find(params[:id])
+                respond_with @technician
             end
 
             def create
@@ -17,11 +17,15 @@ module Api
             end
 
             def update
-                respond_with Technician.update(params[:id],location_params)
+                if @technician.update(technician_params)
+                    render json: @technician, status: :ok
+                else
+                    render json: @technician.errors, status: :unprocessable_entity
+                end
             end
 
             def destroy
-                respond_with Technician.destroy(params[:id])
+                respond_with @technician.destroy
             end
 
             def technician_location
