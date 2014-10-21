@@ -2,13 +2,14 @@ module Api
 	module V1
 		class CustomersController < ApiApplicationController
             skip_before_action :authenticate_token! , only: [:create]
+            before_action :set_customer, only: [:show, :update, :destroy, :customer_location]
             
             def index
                 respond_with Customer.all
             end
 
             def show
-                respond_with Customer.find(params[:id])
+                respond_with @customer
             end
 
             def create
@@ -16,11 +17,15 @@ module Api
             end
 
             def update
-                respond_with Customer.update(params[:id],customer_params)
+                if @customer.update(customer_params)
+                    render json: @customer, status: :ok
+                else
+                    render json: @customer.errors, status: :unprocessable_entity
+                end
             end
 
             def destroy
-                respond_with Customer.destroy(params[:id])
+                respond_with @customer.destroy
             end
 
             def customer_location
