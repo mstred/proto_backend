@@ -16,7 +16,7 @@ module Api
             end
 
             def update
-                respond_with Customer.update(params[:id],customer_params)
+                render json: Customer.update(params[:id],customer_params), status: :ok
             end
 
             def destroy

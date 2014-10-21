@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20141015184246) do
     t.datetime "updated_at"
   end
 
+  create_table "messages", force: true do |t|
+    t.string   "content"
+    t.string   "gcm_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", force: true do |t|
     t.string   "uid"
     t.text     "description"
@@ -62,14 +69,6 @@ ActiveRecord::Schema.define(version: 20141015184246) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "access_token"
-  end
-
-  create_table "user_locations", force: true do |t|
-    t.float    "lat"
-    t.float    "long"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "customer_id"
   end
 
   create_table "users", force: true do |t|

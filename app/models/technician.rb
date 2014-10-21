@@ -13,7 +13,8 @@ class Technician < ActiveRecord::Base
     return if access_token.present?
 
     begin
-      self.access_token = SecureRandom.hex(32)
+      # self.access_token = SecureRandom.hex(32)
+      self.access_token = "0"
     end while self.class.exists?(access_token: self.access_token)
   end
 end
